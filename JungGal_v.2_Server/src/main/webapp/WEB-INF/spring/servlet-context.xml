@@ -20,6 +20,12 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+
+	<!-- multipart 파일 처리 bean -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<beans:property name="maxUploadSize" value="20971520" />
+    	<beans:property name="maxInMemorySize" value="20971520" />
+	</beans:bean>
 	
 	<context:component-scan base-package="com.GNU_Graduate_Project_Team.JungGal_v2" />
 	
