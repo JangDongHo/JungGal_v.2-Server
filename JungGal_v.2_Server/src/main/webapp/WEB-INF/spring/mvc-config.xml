@@ -37,5 +37,6 @@
 
 	<!-- MyBatis xml파일을 빈으로 등록하기 위한 스캔 설정 	-->
 	<mybatis-spring:scan base-package="com.GNU_Graduate_Project_Team.JungGal_v2.user.repository"/>
+	<mybatis-spring:scan base-package="com.GNU_Graduate_Project_Team.JungGal_v2.user.phonerepository"/>
 
 </beans>
