@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.repository.ISharePostMapper">
+
+	
+	<!-- 나눔 게시물 업로드 -->
+	<insert id="share_post_upload">
+		INSERT INTO Share_post (user_id, share_post_name, share_post_img_cnt, share_post_region, share_post_point, share_post_icon, share_people, share_time, share_story) 
+		VALUES ( #{user_id}, #{share_post_name}, #{share_post_img_cnt}, #{share_post_region}, ST_GeomFromText(#{share_post_point}), #{share_post_icon}, #{share_people}, #{share_time}, #{share_story})
+		<selectKey resultType="int" keyProperty="share_post_id" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+
+	</insert>
+	
+	<!-- 마커 리스트 Get -->
+	<select id="getPostList" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.MarkerVO">
+	select share_post_id, share_post_icon, share_post_name, st_x(`share_post_point`) as `Longitude`, st_y(`share_post_point`) as `Latitude` from share_post
+    where ST_Distance_sphere(share_post_point, ST_GeomFromText(#{point}))&lt;=3000;
+ 
+    </select>
+    
+    <!-- 게시물 Select  -->
+    <select id="getSharePost" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO">
+    	select * from share_post where share_post_id=#{share_post_id};
+    </select>
+    
+    <!-- 게시물 작성자 Select -->
+    <select id="getSharePostWiter" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO">
+    	select id,name,profile_flag,introduce from user where id=#{id};
+    </select>
+	
+
+
+</mapper>

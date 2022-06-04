@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.GNU_Graduate_Project_Team.JungGal_v2.user.phonerepository.IUserPhoneAuthMapper">
+
+	<!-- 휴대폰 인증 정보 저장 SQL -->
+	<insert id="phone_auth">
+		INSERT INTO auth_phone (phone_number,auth_number)
+		VALUES (#{phone_number}, #{auth_number})
+	</insert>
+
+	<!-- 휴대폰 인증 확인 SQL -->
+	<select id="phone_auth_pass" resultType="String">
+		SELECT auth_number 
+		FROM auth_phone 
+		WHERE phone_number = #{phone_number};
+	</select>
+
+
+</mapper>
