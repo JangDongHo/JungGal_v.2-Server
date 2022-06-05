@@ -29,6 +29,33 @@
 	
 	<context:component-scan base-package="com.GNU_Graduate_Project_Team.JungGal_v2" />
 	
-	
+	<!-- Spring Quartz -->
+	<!-- Job -->
+	<beans:bean id="job" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <beans:property name="targetObject" ref="ScheduleJob" />
+        <beans:property name="targetMethod" value="passedTimeDeletePost" />
+        <beans:property name="concurrent" value="false" />
+    </beans:bean>
+
+	<!-- Trigger -->
+	<beans:bean id="jobTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <beans:property name="jobDetail" ref="job" />
+        <beans:property name="cronExpression" value="0 0/15 * * * ?" />
+    </beans:bean>
+  
+  <!-- Scheduler -->
+    <!-- bean의 id인 jobScheduler는 원하는 이름으로 설정 가능 -->
+    <beans:bean id="jobScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    	
+        <!-- 스케줄러로 작동시킬 트리거 목록 지정(여러 개의 트리거를 등록해 사용 가능) -->
+        <beans:property name="triggers">
+            <beans:list>
+                <beans:ref bean="jobTrigger" />
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
 	
 </beans:beans>
+
+

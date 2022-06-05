@@ -24,5 +24,6 @@ public interface ISharePostService {
 	SharePostVO share_post_edit(SharePostVO sharepost);
 		
 	//반찬 나눔 게시물 삭제
+	void deleteSharePost(SharePostVO sharepost);
 	
 }

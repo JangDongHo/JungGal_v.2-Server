@@ -22,6 +22,11 @@
  
     </select>
     
+    <!-- 모든 게시물 Select -->
+    <select id="getAllSharePost" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO">
+    	select * from share_post;
+    </select>
+    
     <!-- 게시물 Select  -->
     <select id="getSharePost" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO">
     	select * from share_post where share_post_id=#{share_post_id};
@@ -31,6 +36,11 @@
     <select id="getSharePostWiter" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO">
     	select id,name,profile_flag,introduce from user where id=#{id};
     </select>
+    
+    <!-- 게시물 삭제 로직 -->
+    <delete id="deleteSharePost">
+    	delete from share_post where share_post_id=#{share_post_id};
+    </delete>
 	
 
 

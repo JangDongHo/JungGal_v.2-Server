@@ -14,6 +14,9 @@ public interface ISharePostMapper {
 	//마커 정보 받아오기
 	List<MarkerVO> getPostList(String point);
 	
+	//모든 게시물 Select
+	List<SharePostVO> getAllSharePost();
+	
 	//반찬 나눔 게시물 Select
 	SharePostVO getSharePost(Integer share_post_id);
 	
@@ -23,6 +26,7 @@ public interface ISharePostMapper {
 	//반찬 나눔 게시물 수정
 	
 	//반찬 나눔 게시물 삭제
+	void deleteSharePost(Integer share_post_id);
 	
 	
 }

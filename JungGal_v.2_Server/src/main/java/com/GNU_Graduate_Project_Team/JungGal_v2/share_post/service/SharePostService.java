@@ -134,5 +134,47 @@ public class SharePostService implements ISharePostService {
 
 		return null;
 	}
+	
+	//반찬 나눔 게시물 삭제
+	@Override
+	public void deleteSharePost(SharePostVO share_post) {
+		
+		mapper.deleteSharePost(share_post.getShare_post_id());
+		
+		
+		for(int i = 1; i<=share_post.getShare_post_img_cnt(); i++)
+		{
+			String fileurl="D:\\JungGal\\JungGal_Share_Post\\"+share_post.getUser_id()+"\\"+share_post.getShare_post_id()+"_"+share_post.getShare_post_name()+"-";
+			fileurl+=i+".jpeg";
+			File file = new File(fileurl);
+			
+			System.out.println(fileurl);
+			
+			
+			if( file.exists() ){
+	    		
+				for(int j=0; j<100; j++)
+				{
+					if(file.delete()){
+		    			System.out.println("파일삭제 성공");
+		    			break;
+		    		}else{
+		    			System.out.println("파일삭제 실패");
+		    			try {
+		                    Thread.sleep(1000);
+		                } catch(InterruptedException e) {
+		                    e.printStackTrace();
+		                }
+		    		}
+				}
+				
+	    	}else{
+	    		System.out.println("파일이 존재하지 않습니다.");
+	    	}
+		}
+		
+	        	
+
+	}
 
 }

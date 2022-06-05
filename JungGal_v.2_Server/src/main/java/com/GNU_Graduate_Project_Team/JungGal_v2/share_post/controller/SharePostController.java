@@ -108,9 +108,6 @@ public class SharePostController {
 		
 		ResponseEntity<byte[]> result = new ResponseEntity<byte[]>(IOUtils.toByteArray(new FileInputStream(new File(fileurl))), header, HttpStatus.CREATED);
 		
-		 *
-		 *
-		 *
 		 */
 		
 		return imageVO;
@@ -124,5 +121,17 @@ public class SharePostController {
 		System.out.println("/share_post/selectUser POST 요청 발생!");
 		return service.getSharePostWiter(user);
 		
+	}
+	
+	/** 나눔 게시물 삭제 로직 **/
+	@PostMapping("deletePost")
+	public SharePostVO deletPost(@RequestBody SharePostVO sharepost)
+	{
+		System.out.println("/share_post/deletePost POST 요청 발생!");
+		
+		
+		service.deleteSharePost(sharepost);
+		
+		return sharepost;
 	}
 }
