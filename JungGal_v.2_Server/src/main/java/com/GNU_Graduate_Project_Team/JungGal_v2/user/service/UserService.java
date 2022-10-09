@@ -114,8 +114,6 @@ public class UserService implements IUserService {
 	@Override
 	public void phone_auth(String phone_number) {
 		
-		System.out.println("연구실 세미나 : 휴대폰 문자 발송 Service 호출 !!");
-		
 		MessageService messageService = new MessageService();
 		
 		Integer auth_num= (int) (Math.random() * 10000);
@@ -151,5 +149,40 @@ public class UserService implements IUserService {
 		}
 		
 		return phone_info;
+	}
+	
+	@Override
+	public UserVO selectAlarmCnt(String id) {
+		
+		return mapper.selectOne(id);
+	}
+	
+	@Override
+	public int request_AlarmInit(String id) {
+		try {
+			mapper.request_AlarmInit(id);
+			return 1;
+		} catch (Exception e) {
+			return 0;
+		}
+	}
+	
+	@Override
+	public void request_update_alarm(String id) {
+		System.out.println("request_update_alarm 서비스 호출");
+		mapper.request_update_alarm(id);		
+	}
+	
+	@Override
+	public void response_update_alarm(String id) {
+		System.out.println("response_update_alarm 서비스 호출");
+		mapper.response_update_alarm(id);
+	}
+	
+	@Override
+	public void response_alarm_init(String id) {
+		System.out.println("response_alarm_init 서비스 호출");
+		mapper.response_alarm_init(id);
+		
 	}
 }

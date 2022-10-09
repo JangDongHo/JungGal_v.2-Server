@@ -28,6 +28,9 @@ public class UserVO {
 	private Boolean seller_auth;
 	private Boolean profile_flag;
 	private MultipartFile profile;
+	private int responseAlarmCnt;
+	private int requestAlarmCnt;
+	
 	
 	// SharePost에서 작성자 이미지 보낼때 사용 ( BASE 64 형태 사용 )
 	String imagedata;
@@ -103,6 +106,22 @@ public class UserVO {
 
 	public void setImagedata(String imagedata) {
 		this.imagedata = imagedata;
+	}
+
+	public int getResponseAlarmCnt() {
+		return responseAlarmCnt;
+	}
+
+	public void setResponseAlarmCnt(int responseAlarmCnt) {
+		this.responseAlarmCnt = responseAlarmCnt;
+	}
+
+	public int getRequestAlarmCnt() {
+		return requestAlarmCnt;
+	}
+
+	public void setRequestAlarmCnt(int requestAlarmCnt) {
+		this.requestAlarmCnt = requestAlarmCnt;
 	}
 
 	@Override

@@ -12,4 +12,23 @@ public interface IUserMapper {
 	
 	//id 중복 확인
 	Integer checkId(String id);
+	
+	//Apply 알람 갯수 초기화
+	void apply_AlarmInit(String id);
+	
+	//Apply 알람 갯수 update
+	void apply_AlarmUpdate(String id);
+	
+	//request 알람 갯수 초기화
+	void request_AlarmInit(String id);
+	
+	//request 알람 갯수 update
+	void request_update_alarm(String id);
+	
+	//response 알람 갯수 update
+	void response_update_alarm(String id);
+	
+	//response 알람 갯수 초기화
+	void response_alarm_init(String id);
+		
 }

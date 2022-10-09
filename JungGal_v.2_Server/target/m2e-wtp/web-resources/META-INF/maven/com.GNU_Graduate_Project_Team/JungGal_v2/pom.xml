@@ -126,6 +126,33 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- webSocket 라이브러리 -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-websocket</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+		    <artifactId>spring-messaging</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- Firebase FCM -->
+		<dependency>
+		    <groupId>com.google.firebase</groupId>
+		    <artifactId>firebase-admin</artifactId>
+		    <version>8.1.0</version>
+		</dependency>
+								
+		<!-- okhttp3/okhttp -->
+		<dependency>
+		    <groupId>com.squareup.okhttp3</groupId>
+		    <artifactId>okhttp</artifactId>
+		    <version>4.2.2</version>
+		</dependency>
+		
 								
 		<!-- AspectJ -->
 		<dependency>

@@ -20,7 +20,13 @@ import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.apache.maven.shared.utils.io.IOUtil;
 import org.apache.struts.mock.MockMultipartRequestHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -28,6 +34,8 @@ import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.MarkerVO;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.repository.ISharePostMapper;
 import com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO;
+
+import edu.emory.mathcs.backport.java.util.Collections;
 
 
 @Service
@@ -176,5 +184,6 @@ public class SharePostService implements ISharePostService {
 	        	
 
 	}
+	
 
 }

@@ -35,5 +35,37 @@
 		FROM USER
 		WHERE id=#{id}
 	</select>
+	
+	<select id="request_alarm_select">
+	
+	</select>
+	
+	<!-- request 알람 갯수 초기화 -->
+	<update id="request_AlarmInit">
+		UPDATE user 
+		SET requestAlarmCnt=0 
+		WHERE id=#{id}
+	</update>
+	
+	<!-- response 알람 갯수 초기화 -->
+	<update id="response_alarm_init">
+		UPDATE user 
+		SET responseAlarmCnt=0 
+		WHERE id=#{id}
+	</update>
+	
+	<!-- request 알람 갯수 update -->
+	<update id="request_update_alarm">
+		UPDATE user 
+		SET requestAlarmCnt=requestAlarmCnt+1
+		WHERE id=#{id}
+	</update>
+	
+	<!-- response 알람 갯수 update -->
+	<update id="response_update_alarm">
+		UPDATE user 
+		SET responseAlarmCnt=responseAlarmCnt+1
+		WHERE id=#{id}
+	</update>
 
 </mapper>

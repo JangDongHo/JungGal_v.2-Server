@@ -20,4 +20,19 @@ public interface IUserService {
 	//휴대폰 인증번호 확인
 	PhoneVO phone_auth_pass(PhoneVO phone_info);
 	
+	//알람 갯수 조회 기능
+	UserVO selectAlarmCnt(String id);
+	
+	//request 알람 갯수 초기화 기능
+	int request_AlarmInit(String id);
+	
+	//request 알람 갯수 update
+	void request_update_alarm(String id);
+	
+	//response 알람 갯수 update
+	void response_update_alarm(String id);
+	
+	//response 알람 갯수 초기화
+	void response_alarm_init(String id);
+	
 }
