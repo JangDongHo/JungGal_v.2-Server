@@ -41,6 +41,13 @@
     <delete id="deleteSharePost">
     	delete from share_post where share_post_id=#{share_post_id};
     </delete>
+    
+    <!-- 게시물 나눔 인원 update -->
+    <update id="sharedPeopleUpdate">
+    	UPDATE share_post 
+    	SET shared_people=shared_people+1
+    	WHERE share_post_id=#{share_post_id};
+    </update>
 	
 
 

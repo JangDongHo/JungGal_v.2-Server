@@ -180,9 +180,13 @@ public class SharePostService implements ISharePostService {
 	    		System.out.println("파일이 존재하지 않습니다.");
 	    	}
 		}
-		
-	        	
 
+	}
+	
+	@Override
+	public void sharedPeopleUpdate(Integer share_post_id) {
+		System.out.println("share_post 나눔 인원 + 1 서비스 호출");
+		mapper.sharedPeopleUpdate(share_post_id);
 	}
 	
 

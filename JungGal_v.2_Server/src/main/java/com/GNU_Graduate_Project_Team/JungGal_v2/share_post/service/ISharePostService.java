@@ -26,4 +26,7 @@ public interface ISharePostService {
 	//반찬 나눔 게시물 삭제
 	void deleteSharePost(SharePostVO sharepost);
 	
+	//반찬 나눔 게시물 나눔해준 인원 + 1
+	void sharedPeopleUpdate(Integer share_post_id);
+	
 }
