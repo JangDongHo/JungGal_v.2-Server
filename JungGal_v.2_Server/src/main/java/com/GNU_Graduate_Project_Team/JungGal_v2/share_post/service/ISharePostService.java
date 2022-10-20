@@ -3,6 +3,7 @@ package com.GNU_Graduate_Project_Team.JungGal_v2.share_post.service;
 import java.util.List;
 
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.MarkerVO;
+import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.Point;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO;
 import com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO;
 
@@ -28,5 +29,8 @@ public interface ISharePostService {
 	
 	//반찬 나눔 게시물 나눔해준 인원 + 1
 	void sharedPeopleUpdate(Integer share_post_id);
+	
+	//게시물 좌표 Select
+	Point selectGeoPoint(Integer share_post_id);
 	
 }

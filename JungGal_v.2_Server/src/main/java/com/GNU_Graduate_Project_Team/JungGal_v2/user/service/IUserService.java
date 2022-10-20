@@ -34,5 +34,8 @@ public interface IUserService {
 	
 	//response 알람 갯수 초기화
 	void response_alarm_init(String id);
+
+	//User Name Select
+	UserVO selectUserName(String id);
 	
 }

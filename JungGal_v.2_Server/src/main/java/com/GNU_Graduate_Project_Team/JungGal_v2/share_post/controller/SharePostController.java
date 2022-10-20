@@ -81,8 +81,10 @@ public class SharePostController {
 			tmp.setShare_post_point(null);
 			System.out.println(tmp);
 		} catch (Exception e) {
+			tmp = new SharePostVO();
 			tmp.setShare_post_id(null);
 		}	
+
 		return tmp;
 	}
 	
@@ -133,6 +135,15 @@ public class SharePostController {
 		service.deleteSharePost(sharepost);
 		
 		return sharepost;
+	}
+	
+	/** 게시물 좌표 Select **/
+	@PostMapping("selectGeoPoint")
+	public Point selectGeoPoint(@RequestBody SharePostVO sharepost)
+	{
+		System.out.println("/share_post/selectGeoPoint POST 요청 발생!");
+
+		return service.selectGeoPoint(sharepost.getShare_post_id());
 	}
 	
 }

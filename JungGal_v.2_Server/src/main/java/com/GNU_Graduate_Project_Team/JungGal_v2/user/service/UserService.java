@@ -185,4 +185,10 @@ public class UserService implements IUserService {
 		mapper.response_alarm_init(id);
 		
 	}
+	
+	@Override
+	public UserVO selectUserName(String id) {
+		System.out.println("selectUserName 서비스 호출");
+		return mapper.selectOne(id);
+	}
 }

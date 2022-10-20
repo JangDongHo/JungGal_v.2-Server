@@ -31,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.MarkerVO;
+import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.Point;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.repository.ISharePostMapper;
 import com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO;
@@ -104,8 +105,8 @@ public class SharePostService implements ISharePostService {
 	/** 나눔 게시물 Select **/
 	@Override
 	public SharePostVO getSharePost(MarkerVO marker) {
-	
-				
+		
+		System.out.println("나눔 게시물 Select 서비스 요청");
 		return mapper.getSharePost(marker.getShare_post_id());
 	}
 	
@@ -189,5 +190,10 @@ public class SharePostService implements ISharePostService {
 		mapper.sharedPeopleUpdate(share_post_id);
 	}
 	
+	@Override
+	public Point selectGeoPoint(Integer share_post_id) {
+		System.out.println("selectGeoPoint 서비스 호출");
+		return mapper.selectGeoPoint(share_post_id);
+	}
 
 }

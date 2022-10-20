@@ -48,6 +48,11 @@
     	SET shared_people=shared_people+1
     	WHERE share_post_id=#{share_post_id};
     </update>
+    
+    <select id="selectGeoPoint" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.Point">
+    	SELECT st_x(`share_post_point`) as `Longitude`, st_y(`share_post_point`) as `Latitude` FROM share_post 
+    	WHERE share_post_id=#{share_post_id};
+    </select>
 	
 
 
