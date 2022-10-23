@@ -31,4 +31,6 @@ public interface IUserMapper {
 	//response 알람 갯수 초기화
 	void response_alarm_init(String id);
 		
+	//회원 가입 기능
+	void user_profile_update(UserVO user);
 }

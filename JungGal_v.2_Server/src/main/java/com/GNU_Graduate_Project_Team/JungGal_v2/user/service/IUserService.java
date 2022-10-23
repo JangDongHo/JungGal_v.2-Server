@@ -38,4 +38,10 @@ public interface IUserService {
 	//User Name Select
 	UserVO selectUserName(String id);
 	
+	//User Data Select
+	UserVO selectUserData(String id);
+	
+	//User Profile Update
+	void user_profile_update(UserVO user);
+	
 }

@@ -63,7 +63,6 @@ public class UserController {
 		Integer flag = 0;
 		
 		System.out.println("/user/register POST 요청 발생!");
-		System.out.println("param : " + user);
 		
 		//가입된 ID인지 Checking 
 		flag = service.checkId(user.getId());
@@ -146,5 +145,32 @@ public class UserController {
 		return user;
 	}
 	
+	//User Datat 조회
+	@PostMapping("/getUserData")
+	public UserVO getUserData(@RequestBody UserVO user)
+	{
+		System.out.println("/user/getUserData 요청! : POST");
+		//user = service.selectUserData(user.getId());
+
+		return user;
+	}
+	
+	//User Profile 수정
+	// multipart/form-data 형식으로 통신
+	@PostMapping("/updateUserProfile")
+	public UserVO updateUserProfile( UserVO user)
+	{
+		
+		System.out.println("/user/updateProfile POST 요청 발생!");
+		System.out.println("param : " + user);
+		
+		service.user_profile_update(user);
+		
+		UserVO tmp = new UserVO();
+		tmp.setId(user.getId());
+		
+		return tmp;
+		
+	}
 	
 }

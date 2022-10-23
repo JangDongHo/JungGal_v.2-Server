@@ -19,8 +19,8 @@
 	
 	<!-- 회원 가입 SQL -->
 	<insert id="user_regist">
-		INSERT INTO USER (id, pw, name, phone_number, introduce, profile_flag)
-		VALUES (#{id}, #{pw},#{name},#{phone_number}, #{introduce}, #{profile_flag})
+		INSERT INTO USER (id, pw, name, real_name, phone_number, introduce, profile_flag)
+		VALUES (#{id}, #{pw},#{name},#{real_name},#{phone_number}, #{introduce}, #{profile_flag})
 	</insert>
 	
 	<!-- 로그인 SQL -->
@@ -65,6 +65,12 @@
 	<update id="response_update_alarm">
 		UPDATE user 
 		SET responseAlarmCnt=responseAlarmCnt+1
+		WHERE id=#{id}
+	</update>
+	
+	<update id="user_profile_update">
+		UPDATE user 
+		SET profile_flag=#{profile_flag}, introduce=#{introduce} 
 		WHERE id=#{id}
 	</update>
 

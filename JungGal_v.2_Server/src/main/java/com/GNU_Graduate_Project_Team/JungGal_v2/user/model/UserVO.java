@@ -30,6 +30,8 @@ public class UserVO {
 	private MultipartFile profile;
 	private int responseAlarmCnt;
 	private int requestAlarmCnt;
+	private Boolean profile_change_flag;
+	private String real_name;
 	
 	
 	// SharePost에서 작성자 이미지 보낼때 사용 ( BASE 64 형태 사용 )
@@ -122,6 +124,22 @@ public class UserVO {
 
 	public void setRequestAlarmCnt(int requestAlarmCnt) {
 		this.requestAlarmCnt = requestAlarmCnt;
+	}	
+
+	public Boolean getProfile_change_flag() {
+		return profile_change_flag;
+	}
+
+	public void setProfile_change_flag(Boolean profile_change_flag) {
+		this.profile_change_flag = profile_change_flag;
+	}
+
+	public String getReal_name() {
+		return real_name;
+	}
+
+	public void setReal_name(String real_name) {
+		this.real_name = real_name;
 	}
 
 	@Override

@@ -191,4 +191,37 @@ public class UserService implements IUserService {
 		System.out.println("selectUserName 서비스 호출");
 		return mapper.selectOne(id);
 	}
+	
+	@Override
+	public UserVO selectUserData(String id) {
+		System.out.println("selectUserData 서비스 호출");
+		return mapper.selectOne(id);
+	}
+	
+	@Override
+	public void user_profile_update(UserVO user) {
+		System.out.println("updateUserProfile 서비스 호출");
+		
+		MultipartFile user_profile;
+		
+		//사용자 Profile저장
+		if (user.getProfile_change_flag() != null && user.getProfile_change_flag()==true && user.getProfile_flag()==true )
+		{
+			user_profile = user.getProfile();
+			
+			String[] arr = user_profile.getContentType().split("/");
+			String profile_file_name = user.getId()+"_profile." + arr[1];
+			
+			try {
+				user_profile.transferTo(new File("D:\\JungGal\\JungGal_User_Profile\\"+user.getId()+"\\" +profile_file_name));
+			} catch (IllegalStateException | IOException e) {
+				e.printStackTrace();
+			}
+		
+		}
+		
+		
+		mapper.user_profile_update(user);
+		
+	}
 }
