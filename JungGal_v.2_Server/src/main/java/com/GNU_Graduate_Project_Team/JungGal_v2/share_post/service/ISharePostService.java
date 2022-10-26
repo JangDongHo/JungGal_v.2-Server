@@ -33,4 +33,7 @@ public interface ISharePostService {
 	//게시물 좌표 Select
 	Point selectGeoPoint(Integer share_post_id);
 	
+	//게시물 검색 기능
+	List<SharePostVO> searchPost(SharePostVO sharePost, Point point);
+	
 }

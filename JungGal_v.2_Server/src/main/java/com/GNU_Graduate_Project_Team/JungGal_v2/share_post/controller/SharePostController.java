@@ -146,4 +146,21 @@ public class SharePostController {
 		return service.selectGeoPoint(sharepost.getShare_post_id());
 	}
 	
+	/** 게시물 검색 **/
+	@PostMapping("/searchPost")
+	public List<SharePostVO> searchPost(@RequestBody SharePostVO sharepost)
+	{
+		System.out.println("/share_post/searchPost POST 요청 발생!");
+		System.out.println("shareopst test : "+sharepost.toString());
+		
+		List<SharePostVO> tmp = service.searchPost(sharepost, sharepost.getPoint()); 
+		
+		for(SharePostVO post : tmp)
+		{
+			System.out.println(post.toString());
+		}
+		
+		return tmp;
+	}
+	
 }

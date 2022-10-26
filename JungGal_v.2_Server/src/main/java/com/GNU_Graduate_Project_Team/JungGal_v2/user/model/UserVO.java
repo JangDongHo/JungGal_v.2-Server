@@ -32,6 +32,7 @@ public class UserVO {
 	private int requestAlarmCnt;
 	private Boolean profile_change_flag;
 	private String real_name;
+	private int share_count;
 	
 	
 	// SharePost에서 작성자 이미지 보낼때 사용 ( BASE 64 형태 사용 )
@@ -140,6 +141,14 @@ public class UserVO {
 
 	public void setReal_name(String real_name) {
 		this.real_name = real_name;
+	}
+
+	public int getShare_count() {
+		return share_count;
+	}
+
+	public void setShare_count(int share_count) {
+		this.share_count = share_count;
 	}
 
 	@Override

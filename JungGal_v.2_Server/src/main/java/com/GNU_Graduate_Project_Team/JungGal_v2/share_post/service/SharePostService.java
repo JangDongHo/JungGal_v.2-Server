@@ -195,5 +195,14 @@ public class SharePostService implements ISharePostService {
 		System.out.println("selectGeoPoint 서비스 호출");
 		return mapper.selectGeoPoint(share_post_id);
 	}
+	
+	@Override
+	public List<SharePostVO> searchPost(SharePostVO sharePost, Point point) {
+		System.out.println("searchPost 서비스 호출");
+		String share_point = "point(" + point.getLongitude()+" "+point.getLatitude()+ ")";
+		String keyword = "%"+sharePost.getKeyword()+"%";
+		
+		return mapper.searchPost(keyword, share_point);
+	}
 
 }

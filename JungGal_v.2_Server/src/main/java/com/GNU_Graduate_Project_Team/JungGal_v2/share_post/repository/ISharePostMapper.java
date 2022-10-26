@@ -2,6 +2,8 @@ package com.GNU_Graduate_Project_Team.JungGal_v2.share_post.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.MarkerVO;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.Point;
 import com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO;
@@ -34,6 +36,10 @@ public interface ISharePostMapper {
 	
 	//게시물 좌표 Select
 	Point selectGeoPoint(Integer share_post_id);
+	
+	//게시물 검색 기능
+	List<SharePostVO> searchPost(@Param("keyword") String keyword, @Param("point") String point);
+	
 	
 	
 }

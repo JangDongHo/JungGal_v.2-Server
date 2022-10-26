@@ -21,6 +21,7 @@ public class SharePostVO {
 	private Integer shared_people;
 	private Double latitude;
 	private Double longitude;
+	private String keyword;
 	
 	@JsonFormat(shape= JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss", timezone="Asia/Seoul") 
 	private Timestamp share_time;
@@ -36,6 +37,9 @@ public class SharePostVO {
 	
 	//파일 번호를 받기위함
 	private Integer imgNumber;
+	
+	//검색 기능을 위함 좌표
+	private Point point;
 	
 	
 	//return을 위해 생성자 생성
@@ -157,6 +161,22 @@ public class SharePostVO {
 
 	public void setImgNumber(Integer imgNumber) {
 		this.imgNumber = imgNumber;
+	}
+	
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
+	public Point getPoint() {
+		return point;
+	}
+
+	public void setPoint(Point point) {
+		this.point = point;
 	}
 
 	@Override

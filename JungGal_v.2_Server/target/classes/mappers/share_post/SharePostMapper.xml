@@ -34,7 +34,7 @@
     
     <!-- 게시물 작성자 Select -->
     <select id="getSharePostWiter" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.user.model.UserVO">
-    	select id,name,profile_flag,introduce from user where id=#{id};
+    	select id,name,profile_flag,introduce,share_point from user where id=#{id};
     </select>
     
     <!-- 게시물 삭제 로직 -->
@@ -52,6 +52,13 @@
     <select id="selectGeoPoint" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.Point">
     	SELECT st_x(`share_post_point`) as `Longitude`, st_y(`share_post_point`) as `Latitude` FROM share_post 
     	WHERE share_post_id=#{share_post_id};
+    </select>
+    
+    <!-- 검색 기능 SQL -->
+    <select id="searchPost" resultType="com.GNU_Graduate_Project_Team.JungGal_v2.share_post.model.SharePostVO">
+    	select * from share_post
+		where ST_Distance_sphere(share_post_point, ST_GeomFromText(#{point}))&lt;=3000 
+		and (share_post_name Like #{keyword} or share_story Like #{keyword} ) order by share_time desc;
     </select>
 	
 

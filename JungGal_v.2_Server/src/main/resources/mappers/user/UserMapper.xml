@@ -73,5 +73,11 @@
 		SET profile_flag=#{profile_flag}, introduce=#{introduce} 
 		WHERE id=#{id}
 	</update>
+	
+	<update id="user_share_point_update">
+		UPDATE user 
+		SET share_point=#{share_point}, share_count=#{share_count} 
+		WHERE id=#{id}
+	</update>
 
 </mapper>
